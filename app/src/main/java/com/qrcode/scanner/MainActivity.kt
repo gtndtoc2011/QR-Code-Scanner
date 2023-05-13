@@ -16,12 +16,15 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.qrcode.scanner.ui.theme.QRCodeScannerTheme
 
-// [reference URL]
-// Jetpack compose Barcode/QR code scanner
-// https://www.codeplayon.com/jetpack-compose-barcode-qr-code-scanner
+// [references]
+//[1] Jetpack compose Barcode/QR code scanner]
+//https://www.codeplayon.com/jetpack-compose-barcode-qr-code-scanner/
 
-// camera-samples/CameraX-MLKit, based on View System
-// https://github.com/android/camera-samples/tree/main/CameraX-MLKit
+//[2] camera-samples/CameraX-MLKit]
+//https://github.com/android/camera-samples/tree/main/CameraX-MLKit
+
+//[3] CameraX 1.2 is now in Beta, 24 August 2022]
+//https://android-developers.googleblog.com/2022/08/camerax-12-is-now-in-beta.html
 
 @ExperimentalPermissionsApi
 class MainActivity : ComponentActivity() {
