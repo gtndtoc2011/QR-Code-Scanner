@@ -2,6 +2,7 @@ package com.qrcode.scanner
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -48,7 +49,9 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Camera Permission")
                         }
                         Spacer(modifier = Modifier.height(10.dp))
-                        CameraPreview()
+                        CameraPreview(){
+                            //Log.d("DEBUG", "onUrlDetect: ${it}")
+                        }
                     }
                 }
             }

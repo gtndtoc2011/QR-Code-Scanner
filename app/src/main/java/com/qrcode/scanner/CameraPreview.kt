@@ -26,7 +26,7 @@ import kotlinx.coroutines.*
 
 
 @Composable
-fun CameraPreview() {
+fun CameraPreview(onUrlDetect: (str: String) -> Unit = {}) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
@@ -85,6 +85,9 @@ fun CameraPreview() {
                     withContext(Dispatchers.Main){
                         previewView.overlay.clear()
                         previewView.overlay.add(qrCodeDrawable)
+                        if(qrCodeViewModel.qrContent.startsWith("http")){
+                            onUrlDetect(qrCodeViewModel.qrContent)
+                        }
                     }
                 }
             }
