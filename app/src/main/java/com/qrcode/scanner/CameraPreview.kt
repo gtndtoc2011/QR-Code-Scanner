@@ -26,7 +26,7 @@ import kotlinx.coroutines.*
 
 
 @Composable
-fun CameraPreview(onUrlDetect: (str: String) -> Unit = {}) {
+fun CameraPreview(modifier: Modifier, onUrlDetect: (str: String) -> Unit = {}) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
@@ -41,8 +41,8 @@ fun CameraPreview(onUrlDetect: (str: String) -> Unit = {}) {
                 implementationMode = PreviewView.ImplementationMode.COMPATIBLE
             }
         },
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = modifier
+//            .fillMaxSize()
             .padding(50.dp)
     ) { previewView ->
 

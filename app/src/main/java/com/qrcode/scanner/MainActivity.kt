@@ -10,6 +10,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -30,6 +31,8 @@ import com.qrcode.scanner.ui.theme.QRCodeScannerTheme
 @ExperimentalPermissionsApi
 class MainActivity : ComponentActivity() {
 
+    val detectedUrlList =  mutableStateListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -49,9 +52,20 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Camera Permission")
                         }
                         Spacer(modifier = Modifier.height(10.dp))
-                        CameraPreview(){
-                            //Log.d("DEBUG", "onUrlDetect: ${it}")
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ){
+                            CameraPreview(Modifier.weight(0.8f)){
+                                detectedUrlList.add(it)
+                                //Log.d("DEBUG(1)", "urlList: ${detectedUrlList}")
+                            }
+                            UrlListView(
+                                modifier = Modifier.weight(0.2f),
+                                list = detectedUrlList
+                            )
                         }
+
                     }
                 }
             }
