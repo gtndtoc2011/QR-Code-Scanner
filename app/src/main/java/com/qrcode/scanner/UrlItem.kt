@@ -1,6 +1,7 @@
 package com.qrcode.scanner
 
 import android.media.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
@@ -11,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun UrlItem(index: Int, str: String) {
+fun UrlItem(index: Int, str: String, onItemClick: (String) -> Unit) {
     Card(elevation = 4.dp,
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier
+            .padding(8.dp)
+            .clickable{onItemClick(str)}
     ){
       Row(verticalAlignment = Alignment.CenterVertically,
       modifier = Modifier.padding(8.dp)){
