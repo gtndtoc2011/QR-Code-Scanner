@@ -57,7 +57,13 @@ class MainActivity : ComponentActivity() {
                             horizontalArrangement = Arrangement.Center
                         ){
                             CameraPreview(Modifier.weight(0.8f)){
-                                detectedUrlList.add(it)
+                                // add only when the item is first or different from the previous one.
+                                if(detectedUrlList.size == 0){
+                                    detectedUrlList.add(it)
+                                }else if(detectedUrlList[detectedUrlList.size - 1] != it){
+                                    detectedUrlList.add(it)
+                                }
+
                                 //Log.d("DEBUG(1)", "urlList: ${detectedUrlList}")
                             }
                             UrlListView(
