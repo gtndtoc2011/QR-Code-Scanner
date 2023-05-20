@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Job
 
 @Composable
-fun UrlItem(index: Int, str: String, onItemClick: (String) -> Unit) {
+fun ListItem(index: Int, str: String, onItemClick: (String) -> Unit) {
     Card(elevation = 4.dp,
         modifier = Modifier
             .padding(8.dp)

@@ -2,7 +2,6 @@ package com.qrcode.scanner
 
 import android.Manifest
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -63,10 +62,8 @@ class MainActivity : ComponentActivity() {
                                 }else if(detectedUrlList[detectedUrlList.size - 1] != it){
                                     detectedUrlList.add(it)
                                 }
-
-                                //Log.d("DEBUG(1)", "urlList: ${detectedUrlList}")
                             }
-                            UrlListView(
+                            ListView(
                                 modifier = Modifier.weight(0.2f),
                                 list = detectedUrlList
                             )
